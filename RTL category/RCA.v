@@ -1,0 +1,15 @@
+`timescale 10ns / 1ps
+
+module RCA(s, cout, x, y, c0);
+input  [3:0] x, y;
+output [3:0] s;
+input  c0;
+output cout;
+wire c1, c2, c3;
+
+FA FA1(s[0],c1,x[0],y[0],c0);
+FA FA2(s[1],c2,x[1],y[1],c1);
+FA FA3(s[2],c3,x[2],y[2],c2);
+FA FA4(s[3],cout,x[3],y[3],c3);
+
+endmodule
